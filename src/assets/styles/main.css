@@ -1,0 +1,499 @@
+/* Importer les polices depuis Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+
+/* Styles globaux */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Lora', serif; /* Utilisez Lora pour le texte principal */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Styles pour le header */
+header {
+  font-family: 'Roboto', sans-serif; /* Utilisez Roboto pour le header */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #333333d3;
+  color: #d6c9c9;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1000;
+  text-align: center;
+}
+
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+header nav ul li {
+  margin: 0 15px;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header img {
+  width: 100px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Styles pour le footer */
+footer {
+  font-family: 'Lora', serif; /* Utilisez Lora pour le footer */
+  text-align: center;
+  padding: 20px;
+  background-color: #333333d3;
+  color: #d6c9c9;
+  position: relative;
+  width: 100%;
+}
+
+footer ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Styles pour l'overlay de la modale */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.747);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Styles pour la modale */
+.modal {
+  background: #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  min-height: 300px;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.close {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+}
+
+.modal-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.modal-thumbnail {
+  width: 100%;
+  height: auto;
+}
+
+.modal-description,
+.modal-file,
+.modal-empty {
+  margin-top: 10px;
+}
+
+.modal a {
+  color: white;
+  text-decoration: none;
+}
+
+.modal a:hover {
+  color: #d6c9c9;
+}
+
+.modal h2 {
+  text-align: center;
+  font-family: 'Roboto', sans-serif; /* Utilisez Roboto pour les titres dans la modale */
+}
+
+/* Sections Styles */
+.home-section, .about-section, .projects-section, .contact-section, .project-details-section {
+  padding: 60px 20px;
+  margin-top: 60px;
+}
+
+.home-section {
+  background: url('../images/fond1.png') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  background-attachment: fixed;
+  flex-direction: column;
+  overflow-x: hidden;
+  color: white;
+  padding-bottom: 150px;
+  align-items: center;
+  text-align: center;
+}
+
+.home-section h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: white;
+  padding-top: 30px;
+  font-family: 'Roboto', sans-serif; /* Utilisez Roboto pour les titres */
+}
+
+.home-section p {
+  font-size: 1.8rem;
+  color: white;
+  margin: 20px 0 0 0;
+  max-width: 1300px;
+  line-height: 1.5;
+  white-space: pre-line;
+  font-family: 'Lora', serif; /* Utilisez Lora pour le texte des paragraphes */
+}
+
+/* Styles spécifiques à la section projets */
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.project {
+  background: #c5c4c4c7;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  box-shadow: 0 0 8px 0 rgb(0, 0, 0);
+  transition: box-shadow 0.3s ease;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  width: calc(33.333% - 20px);
+  box-sizing: border-box;
+  min-height: 200px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.project-image {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  margin: auto;
+}
+
+.projects-section h2 {
+  color: white;
+  margin-bottom: 40px;
+  padding: 50px 0 0 0;
+  font-family: 'Roboto', sans-serif; /* Utilisez Roboto pour les titres dans la section projets */
+}
+
+.project h3 {
+  margin: 10px 0;
+  font-family: 'Roboto', sans-serif; /* Utilisez Roboto pour les titres de projet */
+}
+
+.project button {
+  background-color: #000203;
+  color: #fff;
+  border: none;
+  padding: 20px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.projects-section {
+  background-color: #565656;
+  margin-top: 0px;
+  padding-top: 40px;
+}
+
+.project:hover {
+  box-shadow: 10px 10px 20px rgb(0, 0, 0);
+}
+
+/* Styles pour la section À Propos */
+.about-section {
+  background-color: #adacac;
+  padding: 40px 20px;
+  margin-top: 0;
+}
+
+.about-section p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  font-family: 'Lora', serif; /* Utilisez Lora pour le texte des paragraphes */
+}
+
+.about-section h2 {
+  padding: 50px 0 0 0;
+  font-family: 'Roboto', sans-serif; /* Utilisez Roboto pour les titres */
+}
+
+/* Page 404 Styles */
+.not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: url('../images/404_error.png') no-repeat center center / cover;
+  color: #fff;
+  text-align: center;
+}
+
+.not-found-content {
+  background: #0202028c;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: #fa7b697a 0 0 8px 10px;
+}
+
+.not-found h1 {
+  font-size: 8rem;
+  margin: 0;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif; /* Utilisez Roboto pour le titre 404 */
+}
+
+.not-found p {
+  font-size: 1.5rem;
+  margin: 25px;
+  color: #f8f9fa;
+  font-family: 'Lora', serif; /* Utilisez Lora pour le texte 404 */
+}
+
+.not-found a {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #1d1b1b;
+  text-decoration: none;
+  background-color: #c5c4c4;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.not-found a:hover {
+  text-decoration: underline;
+}
+
+/* Styles pour la section Contact */
+.contact-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: url('../images/fond2.png') no-repeat center center / cover;
+  background-attachment: fixed;
+  color: white;
+  margin-top: 0px;
+}
+
+.contact-title {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  font-family: 'Roboto', sans-serif; /* Utilisez Roboto pour le titre de la section contact */
+}
+
+/* Styles pour le formulaire de contact */
+.contact-form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.contact-form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif; /* Utilisez Roboto pour les labels */
+}
+
+.contact-form-group input,
+.contact-form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: black;
+  font-family: 'Lora', serif; /* Utilisez Lora pour les champs de formulaire */
+}
+
+.contact-form-group input::placeholder,
+.contact-form-group textarea::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.contact-form-group-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.contact-form-group-row .contact-form-group {
+  flex: 1;
+}
+
+.contact-form-group-row .contact-form-group input {
+  margin: 0;
+}
+
+.contact-form-group-message {
+  margin-top: 20px;
+}
+
+.contact-form button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-family: 'Roboto', sans-serif; /* Utilisez Roboto pour le bouton */
+}
+
+.contact-form button:hover {
+  background-color: #555;
+}
+
+/* Responsive Design */
+/* Écrans moyens et tablettes */
+@media (max-width: 1024px) {
+  header img {
+    width: 80px;
+  }
+
+  .home-section {
+    padding: 40px 10px;
+    background-attachment: scroll;
+  }
+
+  .projects-section {
+    gap: 15px;
+  }
+
+  .project {
+    width: calc(50% - 20px);
+  }
+
+  .contact-form-group-row {
+    flex-direction: column;
+  }
+
+  .contact-form-group-row .contact-form-group {
+    margin-bottom: 10px;
+  }
+
+  .contact-form-group-message textarea {
+    height: 150px;
+  }
+}
+
+/* Écrans petits et smartphones */
+@media (max-width: 768px) {
+  header img {
+    width: 60px;
+  }
+
+  .projects-section {
+    gap: 15px;
+  }
+
+  .project {
+    width: calc(50% - 20px);
+    min-height: 180px;
+  }
+
+  .contact-form-group-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contact-form-group-row .contact-form-group {
+    margin-bottom: 10px;
+  }
+
+  .contact-form-group-message textarea {
+    height: 150px;
+  }
+}
+
+/* Très petits écrans et smartphones */
+@media (max-width: 480px) {
+  header img {
+    width: 50px;
+  }
+
+  .home-section, .about-section, .projects-section, .contact-section, .project-details-section {
+    padding: 20px 10px;
+  }
+
+  .project {
+    width: calc(100% - 20px);
+    min-height: 150px;
+  }
+
+  .contact-title {
+    font-size: 1.5rem;
+  }
+
+  .contact-form-group-message textarea {
+    height: 120px;
+  }
+}
